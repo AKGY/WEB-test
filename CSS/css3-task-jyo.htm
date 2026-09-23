@@ -1,0 +1,99 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>
+        메뉴리스트 작성
+    </title>
+    <style>
+        a {
+            text-decoration: none;
+        }
+
+        #menu {
+            width: auto;
+            height: auto;
+            background: lightgray;
+            padding: 0px;
+            text-align: center;
+        }
+
+        .menu_list>a {
+            display: block;
+        }
+
+        .menu_list {
+            background: lightgray;
+            margin: auto;
+            display: inline-block;
+            width: 150px;
+            height: 70px;
+            line-height: 70px;
+            position: relative;
+        }
+
+        .submenu>a {
+            display: block;
+            height: 50px;
+            line-height: 50px;
+        }
+
+        .submenu {
+            position: absolute;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            background-color: white;
+            width: 120px;
+            height: auto;
+            margin: 0px 10px;
+            top: 80%;
+            left: 8%;
+            display: none;
+        }
+
+        .submenu>a:hover {
+            background-color: aqua;
+        }
+
+        .menu_list:hover .submenu {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>HTML5 웹 프로그래밍</h1>
+    <hr>
+
+    <div id="menu">
+        <div class="menu_list"><a href="">Home</a></div>
+        <div class="menu_list"><a href="">Menu1</a>
+            <div class="submenu">
+                <a href="">menu11</a>
+                <a href="">menu12</a>
+            </div>
+        </div>
+        <div class="menu_list"><a href="">Menu2</a>
+            <div class="submenu">
+                <a href="">menu21</a>
+                <a href="">menu22</a>
+                <a href="">menu23</a>
+            </div>
+        </div>
+        <div class="menu_list"><a id="m3" href="">Menu3</a>
+            <div class="submenu">
+                <a href="">menu31</a>
+                <a href="">menu32</a>
+                <a href="">menu33</a>
+                <a href="">menu34</a>
+            </div>
+        </div>
+
+    </div>
+    <br>
+    메뉴 내용을 나타내는 부분 입니다.
+    </br>
+    <a href="../index.htm">홈으로</a>
+
+</body>
+
+</html>

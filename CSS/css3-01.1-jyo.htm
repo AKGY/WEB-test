@@ -6,38 +6,62 @@
         CSS 스타일시트 실습
     </title>
     <style>
-        div {width: 100px; height: 100px;}
-        #co {border: 1px red solid; width: 500; height: 400;}
-        #b0 {background-color: gray; margin: 10px;}
+        div {
+            width: 100px;
+            height: 100px;
+        }
+
+        #co {
+            border: 1px red solid;
+            width: 500px;
+            height: 400px;
+            margin: 30px;
+            position: relative;
+        }
+
+        #b0 {
+            background-color: gray;
+        }
+
         #b1 {
-            background-color: aqua; 
+            background-color: aqua;
             position: absolute;
-            top: 30px;
-            left: 30px; 
-            }
-        #b2 {background-color: lightgray;}
-       
+            top: 50px;
+            left: 100px;
+            box-shadow: 10px 10px aquamarine;
+            
+        }
+
+        #b2 {
+            background-color: lightgray;
+        }
+
 
 
 
         #menu {
-            width: 200px; 
-            height: 500px; 
+            width: auto;
+            height: auto;
             background: skyblue;
             padding: 20px;
+            text-align: center;
+
         }
 
         as {
             background: orange;
-            margin: 30px;
+            margin: auto;
             display: inline-block;
             width: 100px;
             height: 50px;
             padding: 10px;
             border: 5px black solid;
+            line-height: 50px;
         }
-        #m1:hover{background-color: red;}
 
+        #m1:hover {
+            background-color: red;
+        }
     </style>
 
 </head>
@@ -48,16 +72,17 @@
         <div id="b1">박스1</div>
         <div id="b2">박스2</div>
     </div>
-    <hr><hr>
+    <hr>
+    <hr>
 
     <div id="menu">
-        <as id = "m0" href="">메뉴0</as>
-        <as id = "m1" href="">메뉴1</as>
-        <as id = "m2" href="">메뉴2</as>
+        <as id="m0" href="">메뉴0</as>
+        <as id="m1" href="">메뉴1</as>
+        <as id="m2" href="">메뉴2</as>
     </div>
-  
+
     <a href="../index.htm">홈으로</a>
-    
- </body>
+
+</body>
 
 </html>
