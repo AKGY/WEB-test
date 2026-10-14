@@ -1,0 +1,72 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>
+
+    </title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <script>
+        let now = new Date(); let newYear = new Date(2027, 1, 1);
+        let cYear = now.getFullYear(); let cMonth = now.getMonth() + 1;
+        let cDate = now.getDate(); let cDay = now.getDay();
+        let cHour = now.getHours(); let cMinute = now.getMinutes();
+        switch (cDay) {
+            case 0: dayName = "일"; break;
+            case 1: dayName = "월"; break;
+            case 2: dayName = "화"; break;
+            case 3: dayName = "수"; break;
+            case 4: dayName = "목"; break;
+            case 5: dayName = "금"; break;
+            case 6: dayName = "토";
+        }
+        leftedTime = newYear.getTime() - now.getTime();
+        leftedDays = Math.floor(leftedTime / (24 * 60 * 60 * 1000));
+        document.write("자바스크립트 Date 객체 생성과 활용 <hr>");
+        document.write("오늘은 ", cYear, "년 ", cMonth, "월 ", cDate, "일(", dayName, "요일)이고,<br>");
+        document.write("현재시간은 ", cHour, "시 ", cMinute, "분입니다.<br><br>");
+        document.write("새해 첫날까지는 ", leftedDays, " 일이 남았습니다.<br>");
+    </script>
+
+    <script>
+        document.write("<h3>수학상수들</h3><hr>");
+        document.write("Euler's number : " + Math.E + "<br>");
+        document.write("PI : " + Math.PI + "<br>");
+        document.write("2의 제곱근 : " + Math.SQRT2 + "<br>");
+        document.write("2의 자연로그 : " + Math.LN2 + "<br>");
+        document.write("10의 상용로그 : " + Math.LN10 + "<br>");
+        document.write("the base 2 logarithm of e : " + Math.LOG2E + "<br>");
+    </script>
+
+    <h3>로또복권 행운번호를 생성 합니다.</h3>
+    <hr>
+    <button onclick="luckyNumber();">로또복권 행운번호 생성</button>
+    <script>
+        function luckyNumber() {
+            let num = new Array();
+            for (i = 0; i <= 6; i++) {
+                num[i] = Math.floor(Math.random() * 44) + 1;
+                for (j = 1; j <= i; j++)
+                    if (num[j] == num[i]) num[i] = Math.floor(Math.random() * 44) + 1;
+            }
+            num[7] = Math.floor(Math.random() * 44) + 1;
+            for (i = 1; j <= 6; i++) {
+                if (num[j] == num[i]) num[6] = Math.floor(Math.random() * 44) + 1;
+            }
+            document.write("<h3> 로또복권 행운번호 생성 결과 </h3><hr>");
+            document.write(" 행운 번호 : ");
+            for (i = 1; i <= 6; i++) document.write(num[i] + "&nbsp; ");
+            document.write("<br>보너스 번호 : " + num[7]);
+        }
+    </script>
+
+    <br/>
+    <a href="../index.htm">홈으로</a>
+</body>
+
+</html>
