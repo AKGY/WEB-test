@@ -1,0 +1,43 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>
+     DOM(Document Object Model) - JS
+    </title>
+    <style>
+        
+    </style>
+
+
+</head>
+
+<script>
+    function changeContent(){
+        let t1 = document.getElementsByTagName('span');
+        t1[0].innerHTML = "지금은 자바스크립트를 공부합니다.22";
+        t1[1].innerHTML = "??????"
+        let t2 = document.querySelector('#p3');
+        t2.innerHTML = "지금은 <h2>자바스크립트를</h2> 공부합니다.";
+        let t3 = document.querySelector('#p4');
+        t3.innerHTML = "<img src = '../multi/img_test1.jpg' width='250' height='250'>";
+
+    }
+</script>
+
+<body>
+    <h3>What can JavaScript Do?</h3>
+    <span>지금까지 HTML과 CSS를 공부하였습니다.</span><br>
+    <span></span><br>
+    <span id = "p3"></span><br>
+    <span id = "p4"></span><br>
+    
+    <button onclick = 'changeContent()';>다음 내용</button>
+    <br>
+
+
+
+    <button onclick="location.href='../index.htm';">홈으로</button>
+ </body>
+
+</html>

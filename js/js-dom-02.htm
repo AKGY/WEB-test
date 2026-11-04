@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>
+        DOM(Document Object Model) - JS
+    </title>
+    <style>
+
+    </style>
+    <script>
+        function changeContent() {
+            let t1 = document.querySelectorAll("span");
+
+
+
+            t1[0].innerHTML = "HTML5: + CSS3";
+            t1[1].innerHTML = "자바스크립트: DOM 프로그래밍";
+
+            let tagnode = document.createElement("li");
+            let txtnode = document.createTextNode("Ajax 프로그래밍");
+            //let bodytag = document.querySelector("body");
+            let btnnode = document.querySelector("#btn")
+
+            tagnode.appendChild(txtnode);
+
+            btnnode.parentNode.insertBefore(tagnode, btnnode);
+
+            //bodytag.insertBefore(tagnode, btnnode);
+        }
+        function listPlace() {
+            let tag1 = document.querySelector("#t1");
+            let tag2 = document.querySelector("#t2");
+            let newPlace = document.createElement("li")
+            let placeNode = document.createTextNode(tag1.value);
+            newPlace.appendChild(placeNode);
+            tag2.appendChild(newPlace);
+            tag1.value = "";
+        }
+    </script>
+</head>
+
+<body>
+
+    <h3>웹프로그래밍 수업 내용</h3>
+    <span id="s1">HTML5</span><br>
+    <span id="s2">자바스크립트</span><br>
+
+
+
+
+    <button id="btn" onclick='changeContent()' ;>다음 내용</button><br>
+    <span>이름 : </span> <input id = "t1" type="text"  />
+    <button onclick="listPlace()">추가</button><br>
+    <ul id="t2"></ul>
+    <button onclick="location.href='../index.htm';">홈으로</button>
+</body>
+
+</html>

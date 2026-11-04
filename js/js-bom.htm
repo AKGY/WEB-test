@@ -1,0 +1,58 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>
+        bom_test
+    </title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <h1>JS BOM 실습</h1>
+
+    <h3> window 객체</h3>
+
+    <button onclick="w1 = window.open('http://localhost/jyo', 'win1');">실습 홈페이지 열기</button>
+    <button onclick="w1.close()">실습 홈페이지 닫기</button>
+    <a href="http://www.jj.ac.kr" target="win1">전주대 홈페이지</a>
+
+    <!-- document가 있어서 아직 잘 모름 -->
+    <h3> 윈도우 타이머 메서드 </h3>
+    <hr>
+    현재시간 : <span id="clock"></span>
+    <button onclick="clearInterval(t1)">Stop</button>
+    <script>
+        let t1 = setInterval(myClock, 5000);
+        function myClock() {
+            let currentTime = new Date();
+            document.getElementById("clock").innerHTML
+                = currentTime.toLocaleTimeString();
+        }
+    </script>
+
+    <h3> setTimeout() 메서드 1</h3>
+    <hr>
+    생각하는 시간(10초)
+    <button onclick="thinkingStart();">Start</button>
+    <hr>
+    <img id="img1" style="visibility:hidden" , src="../multi/img_test1.jpg" width=200 height=250 />
+    <p id="noti"> </p>
+    <script>
+        function thinkingStart() {
+            document.images[0].style.visibility = "visible";
+            setTimeout(myTimer, 10000);
+        }
+        function myTimer() {
+            document.images[0].style.visibility = "hidden";
+            document.getElementById("noti").innerHTML = "10초가 경과했습니다!";
+        }
+    </script>
+
+    <button onclick="location.href='../index.htm';">홈으로</button>
+</body>
+
+</html>
