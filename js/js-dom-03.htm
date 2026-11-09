@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        DOM(Document Object Model) - JS
+    </title>
+    <script>
+        //실습1
+
+        function changeContent1() {
+            let t1 = document.querySelectorAll("a");
+            t1[0].innerHTML = "전주대 컴퓨터공학과!";
+        }
+        //실습2
+        function changeContent2() {
+            let t1 = document.querySelectorAll("li");
+            t1[1].innerHTML = "병렬처리 컴퓨터 구조";
+        }
+
+        //실습3
+        function changeContent3() {
+            let d = new Date();
+            let h = d.getHours();
+            if (h < 12) {
+                document.body.style.backgroundColor = "orange";
+            }
+            else {
+                document.body.style.backgroundColor = "skyblue";
+            }
+        }
+        //실습4
+        function addElement1() {
+            let pTag = document.querySelector("#a1");
+            let newPlace = document.createElement('li');
+            let newText = document.createTextNode("JS 웹프로그래밍");
+            newPlace.appendChild(newText);
+            pTag.appendChild(newPlace);
+        }
+        //실습5
+        function addElement2() {
+            let pTag = document.querySelector("#a1");
+            let sTag = document.querySelector("#a2");
+            let newTag = document.createElement('li');
+            let newText = document.createTextNode("JS 웹프로그래밍");
+            newTag.appendChild(newText);
+            pTag.insertBefore(newTag, sTag);
+        }
+
+
+
+    </script>
+
+</head>
+
+<body>
+    <h1>Welcome! <a href="http://www.jj.ac.kr">전주대!</a></h1>
+    <h3><a>컴퓨터공학 전공과목</a></h3>
+    <ul id="a1">
+        <li>데이터베이스</li>
+        <li>컴퓨터 아키텍쳐</li>
+        <li id='a2'>알고리즘</li>
+    </ul>
+    <hr>
+    <button onclick="changeContent1()">변경버튼1</button>
+    <button onclick="changeContent2()">변경버튼2</button>
+    <button onclick="changeContent3()">변경버튼3</button>
+    <button onclick="addElement1()">변경버튼4</button>
+    <button onclick="addElement2()">변경버튼5</button>
+    <br>
+    <hr>
+    <hr />
+    <button onclick="location.href = '../index.htm';">홈으로</button>
+</body>
+
+</html>
