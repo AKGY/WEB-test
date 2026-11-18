@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>form2</title>
+</head>
+
+<body>
+    <form>
+        학 과 : <input type="text" name="dept" id="d1"><br>
+        이 름 : <input type="text" name="sName" id="n1"><br>
+        학 년 :
+        <input type="radio" name="p1" value="1학년"> 1학년
+        <input type="radio" name="p1" value="2학년"> 2학년
+        <input type="radio" name="p1" value="3학년"> 3학년
+        <input type="radio" name="p1" value="4학년"> 4학년
+        <hr>
+    </form>
+
+    <button type="button" onclick="f1();">사용자 입력 자료출력</button>
+    <span id="s1"></span>
+
+    <script>
+        function f1() {
+            dept = document.querySelector('#d1').value;
+            name = document.querySelector('#n1').value;
+            txt = "학과 : " + dept + ", 이름 : " + name;
+            //document.querySelector('#s1').innerText = txt;
+            tag = document.getElementsByName('p1');
+            //tag = document.querySelectorAll('[name = "p1"]');
+
+            for(i = 0; i<tag.length; i++){
+                if (tag[i].checked == true){
+                    txt = txt + ", 학년 : " + tag[i].value
+                    break
+                }
+
+            }
+            document.querySelector('#s1').innerText = txt;
+        }
+    </script>
+</body>
+
+</html>
