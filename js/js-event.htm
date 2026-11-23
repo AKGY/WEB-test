@@ -1,0 +1,96 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>이벤트 처리</title>
+</head>
+
+<body>
+    <script>
+        window.onload = function () {
+            document.querySelector("#old").onclick = eventHandler;
+            document.querySelector("#old").onmouseover = eventHandler;
+            document.querySelector("#std").addEventListener("click", eventHandler);
+            document.querySelector("#std").addEventListener("mouseover", eventHandler);
+        }
+        function eventHandler(e) {
+            let output = e + " : " + e.type + " 이벤트가 발생함 ! ";
+            let obj = document.querySelector("#ret");
+            obj.innerHTML = output;
+        }
+    </script>
+
+    <script>
+        window.onload = function () {
+            document.querySelector("#a1").onclick = f;
+            document.querySelector("#a2").addEventListener("click", f);
+            document.querySelector("#a3").onclick = f2;
+        }
+        function f(e) { e.preventDefault(); }
+        function f2(e) {
+            let result = confirm("정보검색 사이트로 연결할까요 ?");
+            if (result == false) e.preventDefault();
+        }
+    </script>
+
+    <script>
+        function imgf1(obj) {
+            obj.src = "../multi/img_test2.jpg"
+
+        }
+        function imgf2(obj) {
+            obj.src = "../multi/img_test1.jpg"
+        }
+    </script>
+
+    <script>
+        let total = 0;
+        function apply(subject) {
+            if (subject.checked == true) { total = total + parseFloat(subject.value); }
+            else { total = total - parseInt(subject.value); }
+            document.querySelector("#sum").value = total;
+        }
+    </script>
+
+
+    <h4> 이벤트객체 처리 </h4>
+    <hr>
+    인라인이벤트 모델 :
+    <button onclick="eventHandler(event);" onmouseover="eventHandler(event);">이벤트 발생</button> <br>
+    고전 이벤트 모델 : <button id="old">이벤트 발생</button> <br>
+    표준 이벤트 모델 : <button id="std">이벤트 발생</button> <br>
+    <hr>
+    <div id="ret"> </div>
+    <hr>
+    <hr>
+    <a href="http://naver.com" target="_blank"> 하이퍼링크-1 </a><br>
+    <a href="http://naver.com" target="_blank" onclick=" return false; "> 하이퍼링크-2 </a><br>
+    <a href="http://naver.com" target="_blank" onclick=" f(event); "> 하이퍼링크-3 </a><br>
+    <a href="http://naver.com" target="_blank" id="a1"> 하이퍼링크-4 </a><br>
+    <a href="http://naver.com" target="_blank" id="a2"> 하이퍼링크-5 </a><br>
+    <a href="http://naver.com" target="_blank" id="a3"> 하이퍼링크-6 </a><br>
+    <hr>
+    <hr>
+    <h4>마우스를 그림위로 이동하면</h4>
+    <img id="fg" src="../multi/img_test1.jpg" width="400" height="250" onmouseover="imgf1(this);"
+        onmouseout="imgf2(this);">
+    <hr>
+    <hr>
+    <h3> 수강신청 과목을 모두 선택하세요 </h3>
+    <hr>
+    <input type="checkbox" name="s" value="2" onchange="apply(this)" />교양 컴퓨터(2학점)
+    <input type="checkbox" name="s" value="4" onchange="apply(this)" />사회봉사(4학점)
+    <input type="checkbox" name="s" value="3" onchange="apply(this)" />웹프로그래밍(3학점)
+    <input type="checkbox" name="s" value="4" onchange="apply(this)" />알고리즘(4학점)
+    <input type="checkbox" name="s" value="1" onchange="apply(this)" />졸업논문(1학점)
+    <hr>
+    총 수강신청 학점 : <input type="text" id="sum" value="" />
+
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <button onclick="location.href='../index.htm';">홈으로</button>
+</body>
+
+</html>

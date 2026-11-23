@@ -29,8 +29,8 @@
             tag = document.getElementsByName('p1');
             //tag = document.querySelectorAll('[name = "p1"]');
 
-            for(i = 0; i<tag.length; i++){
-                if (tag[i].checked == true){
+            for (i = 0; i < tag.length; i++) {
+                if (tag[i].checked == true) {
                     txt = txt + ", 학년 : " + tag[i].value
                     break
                 }
@@ -39,6 +39,9 @@
             document.querySelector('#s1').innerText = txt;
         }
     </script>
+
+    <hr><hr>
+    <button onclick="location.href='../index.htm';">홈으로</button>
 </body>
 
 </html>
