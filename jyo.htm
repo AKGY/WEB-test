@@ -1,0 +1,193 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>성적처리</title>
+    <script>
+
+        let score = [];
+
+        function getGrade(score) {
+            
+            if (score >= 90) {
+                return 4.5;
+            }
+            else if (score >= 80) {
+                return 4.0;
+            }
+            else if (score >= 70) {
+                return 3.5;
+            }
+            else if (score >= 60) {
+                return 3.0;
+            }
+            else if (score >= 50) {
+                return 2.5;
+            }
+            else if (score >= 40) {
+                return 2.0;
+            }
+            else {
+                return 0;
+            }
+
+        }
+        function changeSign(score) {
+            
+            if (score == 4.5) {
+                return "A+";
+            }
+            else if (score == 4.0) {
+                return "A";
+            }
+            else if (score == 3.5) {
+                return "B+";
+            }
+            else if (score == 3.0) {
+                return "B";
+            }
+            else if (score == 2.5) {
+                return "C+";
+            }
+            else if (score == 2.0) {
+                return "C";
+            }
+            else {
+                return "F";
+            }
+
+        }
+
+        window.onload = function fBtn() {
+            document.querySelector("#sInsert").addEventListener("click", insertIntel);
+            document.querySelector("#tButton").addEventListener("click", showTable);
+        }
+
+        function insertIntel() {
+            let fName;
+            let sum = 0;
+            let ave;
+            fName = document.querySelector("#n1").value;
+            node = document.querySelectorAll("#s");
+            score = [];
+
+            for (let i = 0; i < node.length; i++) {
+                score[i] = parseInt(node[i].value);
+                sum += score[i];
+            }
+            ave = sum / 3;
+            document.querySelector("#nn22").innerHTML = "이름 : " + fName;
+            document.querySelector("#sumScore").innerHTML = "총점 : " + sum;
+            document.querySelector("#aveScore").innerHTML = "평균 : " + ave.toFixed(2);
+        }
+
+        function showTable() {
+            let gScore = [];
+            let gradeSign = [];
+            let gAve = 0;
+            let ave = 0;
+            let st = document.querySelectorAll("#tScore td");
+            let gt = document.querySelectorAll("#tGrade td");
+
+            for (let i = 0; i < score.length; i++) {
+                gScore[i] = getGrade(score[i]);
+                gradeSign[i] = changeSign(gScore[i]);
+                st[i + 1].innerHTML = score[i];
+                gt[i + 1].innerHTML = gradeSign[i];
+
+                ave += score[i];
+                gAve += gScore[i];
+            }
+
+            ave /= score.length;
+            gAve /= score.length;
+
+            st[4].innerHTML = ave.toFixed(2);
+            gt[4].innerHTML = gAve.toFixed(2);
+        }
+    </script>
+</head>
+
+<body>
+    <h1>성적처리</h1>
+    <form style="width: 500px;">
+        <hr>
+        <hr />
+        <fieldset>
+            <legend>성명 & 성적 입력</legend>
+
+            이름 : <input type="text" name="sName" id="n1" placeholder="이름을 입력하시오"><br>
+            국어 : <input type="number" name="korean" id="s" placeholder="국어 성적을 입력하시오"><br>
+            영어 : <input type="number" name="english" id="s" placeholder="영어 성적을 입력하시오"><br>
+            수학 : <input type="number" name="math" id="s" placeholder="수학 성적을 입력하시오"><br>
+            <button type="button" id="sInsert">입력</button>
+        </fieldset>
+        <fieldset>
+            <legend>총점 & 평균</legend>
+            <span id="nn22">이름 : </span><br>
+            <span id="sumScore">총점 : </span><br>
+            <span id="aveScore">평균 : </span><br>
+        </fieldset>
+        <fieldset>
+            <legend>성적표</legend>
+            <button type="button" id="tButton">성적표 출력</button>
+            <table border="1">
+                <tr>
+                    <td>
+
+                    </td>
+                    <td>
+                        국어
+                    </td>
+                    <td>
+                        영어
+                    </td>
+                    <td>
+                        수학
+                    </td>
+                    <td>
+                        평균
+                    </td>
+                </tr>
+                <tr id="tScore">
+                    <td>
+                        점수
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                </tr>
+                <tr id="tGrade">
+                    <td>
+                        학점
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <input type="submit" value="저장하기">
+        <input type="reset" value="다시 입력하기">
+    </form>
+</body>
+
+</html>
